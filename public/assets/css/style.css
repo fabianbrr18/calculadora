@@ -10,6 +10,14 @@ body{
   align-items: center;
   justify-content: center;
 }
+#result {
+    width: 100%; /* Establecer el ancho del div al 100% */
+    text-align: center; /* Centrar el texto dentro del div */
+    background-color: #ffcccc; /* Color de fondo para indicar un error */
+    padding: 5px; /* Añadir un poco de espacio alrededor del texto */
+    box-sizing: border-box; /* Incluir el padding en el ancho total del div */
+}
+
 
 .calculadora table{
 	border-collapse: collapse;
@@ -17,6 +25,7 @@ body{
 
 .calculadora table{
 	height: 300px;
+	width: 190px;
 }
 
 #result{

@@ -14,7 +14,7 @@
   <form id="calculadora" class="calculadora" >
     <table>
       <tr>
-        <div class="result" id="result"></div
+        <div class="result" id="result"></div>
 
       </tr>
       <tr>
@@ -40,7 +40,8 @@
         <td><input type="button" value="9" onclick="addDisplay('9')"></td>
       </tr>
       <tr>
-        <td colspan="4"><input type="button" value="=" onclick="calculate()"></td>
+        <td colspan="2"><input type="button" value="0" onclick="addDisplay('0')"></td>
+        <td colspan="2"><input type="button" value="=" onclick="calculate()"></td>
         <input type="hidden" name="numero" id="numero">
         
       </tr>

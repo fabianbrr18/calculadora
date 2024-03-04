@@ -8,23 +8,30 @@ function limpiarDisplay() {
 }
 
 function calculate() {
-  var expression = document.getElementById('result').textContent;
+  var expression = document.getElementById('result').textContent; // Utilizar 'textContent' en lugar de 'value'
 
   // Enviar la expresión al archivo PHP para el cálculo
-  fetch('http://localhost/Calculadora/app/class/Operaciones.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: 'expression=' + encodeURIComponent(expression)
+  fetch('../../app/class/Operaciones.php', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: 'expression=' + encodeURIComponent(expression)
   })
-    .then(response => response.text())
-    .then(result => {
-      document.getElementById('result').textContent = result;
+  .then(response => response.text())
+  .then(result => {
+      // Verificar si el resultado es un mensaje de error de división por cero
+      if (result === "Error: División por cero") {
+          document.getElementById('result').textContent = result; // Utilizar 'textContent'
+      } else {
+          // Mostrar el resultado normalmente
+          document.getElementById('result').textContent = result; // Utilizar 'textContent'
+      }
       document.getElementById('error').textContent = ''; // Limpiar mensaje de error
-    })
-    .catch(error => {
+  })
+  .catch(error => {
       console.error('Error en el cálculo:', error);
       document.getElementById('error').textContent = 'Error en el cálculo'; // Mostrar mensaje de error
-    });
+  });
 }
+
